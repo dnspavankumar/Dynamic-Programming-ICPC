@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="chapter-header">
+        <a href="{{ url_for('index') }}" class="back-link">← Back to Chapters</a>
+    </div>
+    
+    <article>
+        {{ content|safe }}
+    </article>
+    
+    <div class="chapter-navigation">
+        <!-- You can add previous/next chapter navigation here if needed -->
+    </div>
+{% endblock %}

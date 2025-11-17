@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Table of Contents</h2>
+    <div class="chapters">
+        {% for chapter in chapters %}
+            <div class="chapter-card">
+                <h3><a href="{{ chapter.url }}">{{ chapter.title }}</a></h3>
+                <p>Chapter {{ loop.index }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
