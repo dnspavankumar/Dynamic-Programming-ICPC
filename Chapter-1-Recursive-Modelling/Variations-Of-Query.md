@@ -54,14 +54,14 @@ In this if its a pruning case I would return INT_MAX
 And on reaching the goal we return 0
 
 ```c++
-int minCost(int n){
+int minCost(int n,vector<int>&costs){
     if(n==0){
         return 0;
     }
     if(n<0){
         return INT_MAX;
     }
-    return minCost(n-1)+minCost(n-2)+minCost(n-3);
+    return costs[n]+min(minCost(n-1,costs)+minCost(n-2,costs)+minCost(n-3,costs));
 }
 ```
 
@@ -71,14 +71,14 @@ In this if its a pruning case I would return INT_MIN
 And on reaching the goal we return 0
 
 ```c++
-int maxLoot(int n){
+int maxLoot(int n,vector<int>&loots){
     if(n==0){
         return 0;
     }
     if(n<0){
         return INT_MIN;
     }
-    return maxLoot(n-1)+maxLoot(n-2)+maxLoot(n-3);
+    return loots[n]+max(maxLoot(n-1)+maxLoot(n-2)+maxLoot(n-3));
 }
 ```
 And yeah since pruning and base case are independent they can be written in any order
